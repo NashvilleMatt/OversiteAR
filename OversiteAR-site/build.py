@@ -4,10 +4,6 @@ from html import escape as e
 
 AS_OF = "October 27, 2026"
 
-SHIELD = ('<svg class="shield" viewBox="26 0 100 67" aria-hidden="true">'
-          '<path fill="#e0a100" d="M67,0h21.94v7.25c0,.09,0,.17,0,.26v7.95c0,1.07-.62,2.14-1.7,2.76l-7.88,4.59c-.93.46-1.86.46-2.78,0l-7.88-4.59c-1.08-.46-1.7-1.53-1.7-2.76v-7.7h0V0Z"/>'
-          '<path fill="#e0a100" d="M93.26,17.12V5.14c14.63,5.99,24.74,20.13,24.74,36.87l-8.56,4.15c-1.4.61-2.33,2-2.49,3.53l-1.09,8.6c-18.52-3.23-37.04-3.23-54.93-.15l-1.09-8.6c-.16-1.54-1.09-2.92-2.49-3.53l-10.11-4.92c.47-16.29,10.58-30.11,24.9-35.95v11.98c0,2.3,1.24,4.46,3.42,5.53l9.34,4.61c.93.46,1.87.61,2.8.61s1.87-.15,2.8-.61l9.34-4.61c2.18-1.08,3.42-3.23,3.42-5.53Z"/>'
-          '</svg>')
 
 # status: good | attention | hold
 CUSTOMERS = [
@@ -144,6 +140,30 @@ def money(v):
     return "${:,.2f}".format(v)
 
 
+# ---- Brand assets (Oversite Brand & Style Guide v2.0) ----
+HAT = ('<path d="M67,0h21.94v7.25c0,.09,0,.17,0,.26v7.95c0,1.07-.62,2.14-1.7,2.76l-7.88,4.59c-.93.46-1.86.46-2.78,0l-7.88-4.59c-1.08-.46-1.7-1.53-1.7-2.76v-7.7h0V0Z"/>'
+       '<path d="M93.26,17.12V5.14c14.63,5.99,24.74,20.13,24.74,36.87l-8.56,4.15c-1.4.61-2.33,2-2.49,3.53l-1.09,8.6c-18.52-3.23-37.04-3.23-54.93-.15l-1.09-8.6c-.16-1.54-1.09-2.92-2.49-3.53l-10.11-4.92c.47-16.29,10.58-30.11,24.9-35.95v11.98c0,2.3,1.24,4.46,3.42,5.53l9.34,4.61c.93.46,1.87.61,2.8.61s1.87-.15,2.8-.61l9.34-4.61c2.18-1.08,3.42-3.23,3.42-5.53Z"/>'
+       '<path d="M46.32,51.22c0-.45-.31-.91-.79-1.21l-9.74-4.69-2.2,1.06v7.72l6.13,6.51c.31.45.94.61,1.57.45l6.13-1.36-1.1-8.48Z"/>'
+       '<path d="M110.44,49.64c-.48.15-.79.62-.79,1.24l-1.11,8.96c2.06.31,4.12.77,6.03,1.24.63.15,1.27-.15,1.59-.62l4.76-6.18v-8.35l-1.43-.62-9.04,4.33Z"/>'
+       '<path d="M121.47,57.98l-3.42,4.28c-1.09,1.38-2.95,2.14-4.66,1.68-24.41-5.5-48.51-5.5-71.68,0-.31.15-.78.15-1.09.15-1.24,0-2.49-.46-3.42-1.53l-4.66-5.04-1.24,1.22c-.62.61-.62,1.38-.16,1.99l4.04,4.89c.93,1.07,2.18,1.83,3.58,2.14,24.95-3.82,51.55-3.82,76.5,0,1.4-.31,2.64-1.07,3.58-2.14l4.04-4.89c.47-.61.47-1.53-.16-1.99l-1.24-.76Z"/>')
+WORD = ('<path d="M28.27,84.08c0-7.47-6.42-11.75-14.13-11.75S0,76.61,0,84.08s6.42,11.79,14.13,11.79,14.13-4.29,14.13-11.79ZM22.7,84.08c0,4.32-3.06,7.04-8.56,7.04s-8.56-2.72-8.56-7.04,3.06-7.04,8.56-7.04,8.56,2.72,8.56,7.04Z"/>'
+        '<path d="M52.47,77.3h-5.18l-6.51,12.67-6.71-12.67h-5.63l9.44,17.84h5.37l9.22-17.84Z"/>'
+        '<path d="M73.88,86.66c0-4.81-3.91-9.76-10.68-9.76s-11.66,3.11-11.66,9.33,5.01,9.3,11.72,9.3c5.28,0,9.96-2.55,10.78-5.8h-5.67c-.65,1.38-2.34,2.1-5.21,2.1-3.22,0-5.99-1.41-6.64-4.32h17.36v-.85ZM56.66,84.31c.78-2.75,3.32-3.63,6.51-3.63,2.77,0,5.15,1.67,5.31,3.63h-11.82Z"/>'
+        '<path d="M88.92,76.91c-3.81,0-6.32.65-7.55,3.54v-3.14h-4.98v17.84h5.31v-8.74c0-4.06,4.36-4.55,7.23-4.58v-4.91Z"/>'
+        '<path d="M110,82.34c-.75-3.54-3.35-5.44-9.9-5.44-3.81,0-6.51.49-8.11,1.51-1.56,1.01-2.51,2.13-2.51,4.13,0,4.45,4.2,4.91,7.03,5.24,1.56.2,3.39.26,5.63.39,1.82.1,2.87.56,2.87,1.51,0,1.67-2.35,1.93-4.75,1.93-2.93,0-5.57-.49-5.93-2.19h-5.31c0,2.16,1.53,3.99,3.13,4.88,1.56.85,3.42,1.24,7.75,1.24,7.69,0,10.29-2.29,10.29-6.48,0-4.91-6.55-4.65-11.79-5.17-2.18-.23-3.61-.46-3.61-1.57,0-1.21,1.5-1.77,5.34-1.77,2.67,0,3.91.43,4.62,2l5.24-.2Z"/>'
+        '<path d="M118.07,77.3h-5.28v17.84h5.28v-17.84ZM118.17,74.09c0-1.24-1.24-2.23-2.74-2.23s-2.7.98-2.7,2.23,1.21,2.23,2.7,2.23,2.74-1.01,2.74-2.23Z"/>'
+        '<path d="M127.02,72.39l-5.08,1.7v3.21h-2.47v3.67h2.47v8.45c0,4.06,1.37,6.12,5.18,6.12,1.5,0,2.8-.62,3.16-1.21v-3.99c-.29.36-1.11.72-1.95.72-.91,0-1.3-.39-1.3-1.8v-8.28h3.16v-3.67h-3.16v-4.91Z"/>'
+        '<path d="M153.84,86.66c0-4.81-3.91-9.76-10.68-9.76s-11.66,3.11-11.66,9.33,5.01,9.3,11.72,9.3c5.28,0,9.97-2.55,10.78-5.8h-5.67c-.65,1.38-2.35,2.1-5.21,2.1-3.22,0-5.99-1.41-6.64-4.32h17.36v-.85ZM136.61,84.31c.78-2.75,3.32-3.63,6.51-3.63,2.77,0,5.15,1.67,5.31,3.63h-11.82Z"/>')
+# horizontal lockup: hard hat (gold) + wordmark (white), per guide
+LOGO_H = ('<svg class="logo-h" viewBox="0 0 418 67" role="img" aria-label="Oversite">'
+          f'<g fill="#E0A100" transform="translate(-26 0)">{HAT}</g>'
+          f'<g fill="#FFFFFF" transform="translate(110 -134.2) scale(2)">{WORD}</g></svg>')
+MARK = f'<svg viewBox="26 0 96 67" xmlns="http://www.w3.org/2000/svg"><g fill="#E0A100">{HAT}</g></svg>'
+
+
+TALL_LOGOS = {"hdr", "lda", "hmb", "gha"}
+
+
 def card(c):
     st = c["status"]
     seats_note = f' <span class="muted">({e(c["seats_note"])})</span>' if c["seats_note"] else ""
@@ -160,24 +180,24 @@ def card(c):
     nxt = ""
     if c["next"]:
         who, what = c["next"]
-        nxt = f'<div class="next"><span class="owner {who.lower()}">{e(who)}</span><span>{e(what)}</span></div>'
-    return f'''
+        nxt = f'<div class="next"><span class="owner">{e(who)}</span><span>{e(what)}</span></div>'
+    return f"""
 <article class="card" data-status="{st}" id="{c["slug"]}">
-  <div class="logo-wrap"><img src="logos/{c["logo"]}.png" alt="{e(c["name"])} logo"></div>
+  <div class="logo-tile{" tall" if c["logo"] in TALL_LOGOS else ""}"><img src="logos/{c["logo"]}.png" alt="{e(c["name"])} logo"></div>
   <div class="card-body">
-    <div class="card-head"><h3>{e(c["name"])}</h3><span class="pill {st}">{STATUS_LABEL[st]}</span></div>
+    <div class="card-head"><h3>{e(c["name"])}</h3><span class="chip {st}">{STATUS_LABEL[st]}</span></div>
     <dl class="stats">
-      <div><dt>Seats (Oversite / Stripe)</dt><dd>{e(c["seats"])}{seats_note}</dd></div>
+      <div><dt>Seats, Oversite / Stripe</dt><dd>{e(c["seats"])}{seats_note}</dd></div>
       <div><dt>Billing</dt><dd>{e(c["billing"])}</dd></div>
       <div><dt>Open balance</dt><dd class="num">{e(c["open"])}</dd></div>
-      <div><dt>Past due</dt><dd class="num{past_cls}">{e(c["past"])}</dd></div>
+      <div><dt>Past due</dt><dd><span class="num{past_cls}">{e(c["past"])}</span></dd></div>
     </dl>
     <p class="term">{e(c["term"])}</p>
     <ul class="notes">{notes}</ul>
     {subs}
     {nxt}
   </div>
-</article>'''
+</article>"""
 
 
 def bars():
@@ -188,13 +208,13 @@ def bars():
         pct = v / OPEN_TOTAL * 100
         out.append(f'<div class="bar-row"><span class="bar-label">{e(name)}</span>'
                    f'<span class="bar-track"><span class="bar-fill" style="width:{w:.1f}%"></span></span>'
-                   f'<span class="bar-val num">{money(v)} <em>{pct:.1f}%</em></span></div>')
+                   f'<span class="bar-val"><b class="num">{money(v)}</b><em>{pct:.1f}%</em></span></div>')
     return "".join(out)
 
 
 def tasks():
     rows = "".join(
-        f'<tr><td><span class="owner {o.lower()}">{o}</span></td><td>{e(t)}</td><td>{e(d)}</td><td class="muted">{e(k)}</td></tr>'
+        f'<tr><td><span class="owner">{o}</span></td><td>{e(t)}</td><td class="when">{e(d)}</td><td class="who">{e(k)}</td></tr>'
         for o, t, d, k in TASKS)
     return ('<table class="tasks"><thead><tr><th>Owner</th><th>Task</th><th>Timing</th><th>Who can do it</th></tr></thead>'
             f"<tbody>{rows}</tbody></table>")
@@ -290,105 +310,144 @@ FORMS = [
 ]
 
 CSS = r'''
-:root{--bg:#191d20;--card:#21272b;--card-h:#282f34;--bd:#333a3f;--bd2:#444d54;--tx:#b3bac1;--mut:#7d868e;--br:#e8eaed;--hd:#f2f3f5;--gold:#e0a100;--gold-l:#f0b830;--glow:rgba(224,161,0,.15);--ok:#6fae8a}
+:root{--navy:#1A2040;--navy2:#232A52;--navy3:#2D356A;--ink:#0F1330;--ink2:#3A3F5A;--ink3:#6B6E82;--sky:#5DA9DE;--gold:#E0A100;--gold-l:#F0B830;--cream:#FDF8EA;--line:rgba(15,19,48,.12);--line-d:rgba(255,255,255,.12)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.65 'Source Serif 4',Georgia,serif;-webkit-font-smoothing:antialiased}
-h1,h2,h3,.pill,.owner,dt,th,button,legend,.label,.kpi b,.filters button,.bar-label{font-family:'Outfit',system-ui,sans-serif}
-.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-header.top{border-bottom:1px solid var(--bd);background:rgba(25,29,32,.85);backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}
-header.top .wrap{display:flex;align-items:center;gap:14px;height:64px}
-.shield{height:34px;width:auto}
-.brand{font:600 18px 'Outfit',sans-serif;color:var(--hd);letter-spacing:.2px}
-.brand small{display:block;font:400 12px 'Outfit',sans-serif;color:var(--mut);letter-spacing:.4px}
-nav{margin-left:auto;display:flex;gap:18px;font:500 14px 'Outfit',sans-serif}
-nav a{color:var(--tx);text-decoration:none}nav a:hover{color:var(--gold-l)}
-.hero{padding:56px 0 24px}
-.hero h1{margin:0 0 8px;font-weight:700;font-size:clamp(30px,5vw,46px);line-height:1.1;color:var(--hd);letter-spacing:-.5px}
-.hero p{margin:0;max-width:640px;color:var(--tx)}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:32px 0}
-.kpi{min-width:0;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px 22px}
-.kpi .label{font-size:12px;letter-spacing:.8px;text-transform:uppercase;color:var(--mut)}
-.kpi b{display:block;font-size:30px;font-weight:600;color:var(--hd);margin-top:4px;font-variant-numeric:tabular-nums}
-.kpi.gold b{color:var(--gold)}
-.kpi small{display:block;color:var(--mut);font-size:14px;margin-top:2px}
-.panel{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:26px 28px;margin-bottom:24px}
-.panel h2{margin:0 0 4px;font-size:20px;color:var(--hd);font-weight:600}
-.panel .sub{margin:0 0 18px;color:var(--mut);font-size:15px}
-.bar-row{display:grid;grid-template-columns:110px 1fr 200px;gap:14px;align-items:center;margin:10px 0}
-.bar-label{font-size:14px;color:var(--br);font-weight:500}
-.bar-track{height:12px;background:#171b1e;border-radius:6px;overflow:hidden}
-.bar-fill{display:block;height:100%;background:var(--gold);border-radius:6px}
-.bar-val{text-align:right;color:var(--br);font:500 15px 'Outfit',sans-serif}
-.bar-val em{font-style:normal;color:var(--mut);margin-left:6px}
+body{margin:0;background:#fff;color:var(--ink2);font:400 16px/1.65 'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Nunito',system-ui,sans-serif;font-weight:900;color:var(--ink);letter-spacing:-.01em;margin:0}
+.mono,.eyebrow,dt,.chip,.owner,th,.bar-val em,.term,.foot-mono,.filters button{font-family:'JetBrains Mono',ui-monospace,monospace}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.eyebrow{font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 0 18px}
+.eyebrow::before{content:"";display:inline-block;width:14px;height:2px;background:var(--gold);margin-right:10px;vertical-align:middle}
+.lede{font-size:19px;line-height:1.6;margin:0}
 .num{font-variant-numeric:tabular-nums}
-section.block{padding:40px 0 8px}
-section.block>h2{font-size:28px;color:var(--hd);margin:0 0 6px;font-weight:700}
-section.block>p.lead{margin:0 0 22px;color:var(--mut)}
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
-.filters button{background:transparent;color:var(--tx);border:1px solid var(--bd2);border-radius:8px;padding:8px 14px;font-size:14px;font-weight:500;cursor:pointer}
-.filters button:hover{border-color:var(--gold);color:var(--hd)}
-.filters button[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#20272a;font-weight:600}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:84px}
-.card:hover{background:var(--card-h)}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:rgba(26,32,64,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line-d)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:68px}
+.logo-h{height:30px;width:auto;display:block}
+.top nav{margin-left:auto;display:flex;align-items:center;gap:26px;font-size:14px;font-weight:500}
+.top nav a{color:#c9cde0;text-decoration:none}
+.top nav a:hover{color:var(--gold-l)}
+.top nav a.cta{background:var(--gold);color:var(--ink);font-weight:700;padding:8px 16px;border-radius:6px}
+.top nav a.cta:hover{background:var(--gold-l);color:var(--ink)}
+
+/* dark bands: tech grid + gold glow */
+.dark{position:relative;overflow:hidden;background:var(--navy);color:#c9cde0}
+.dark::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line-d) 1px,transparent 1px),linear-gradient(90deg,var(--line-d) 1px,transparent 1px);background-size:56px 56px;opacity:.55;-webkit-mask-image:radial-gradient(ellipse at 70% 20%,#000 0,transparent 70%);mask-image:radial-gradient(ellipse at 70% 20%,#000 0,transparent 70%);pointer-events:none}
+.dark>.wrap{position:relative;z-index:1}
+.dark h2,.dark h1,.dark h3{color:#fff}
+.glow::after{content:"";position:absolute;width:640px;height:640px;right:-120px;top:-220px;background:radial-gradient(circle,rgba(224,161,0,.34) 0,rgba(224,161,0,0) 62%);filter:blur(30px);pointer-events:none}
+
+.hero{padding:104px 0 88px}
+.hero h1{font-size:clamp(40px,6.2vw,80px);line-height:1.04;max-width:860px;margin-bottom:24px}
+.hero .lede{max-width:640px;color:#c9cde0}
+.statblock{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;background:var(--navy2);border:1px solid var(--line-d);border-radius:14px}
+.stat{padding:28px 30px;min-width:0}
+.stat+.stat{border-left:1px solid var(--line-d)}
+.stat b{display:block;font:900 clamp(26px,3.2vw,40px)/1.1 'Nunito',sans-serif;color:var(--gold);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.stat span{display:block;margin-top:10px;font:500 11px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#9aa0bd}
+.stat small{display:block;margin-top:4px;font-size:14px;color:#c9cde0}
+
+/* light bands */
+.band{padding:96px 0}
+.band.tight{padding:80px 0 24px}
+h2.title{font-size:clamp(30px,4vw,48px);line-height:1.1;margin-bottom:14px}
+.sub{max-width:640px;margin:0 0 40px;color:var(--ink3);font-size:17px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:32px}
+.bar-row{display:grid;grid-template-columns:120px 1fr 210px;gap:18px;align-items:center;margin:14px 0}
+.bar-label{font-weight:700;color:var(--ink);font-size:15px}
+.bar-track{height:12px;background:#ECEEF6;border-radius:100px;overflow:hidden}
+.bar-fill{display:block;height:100%;background:var(--sky);border-radius:100px}
+.bar-val{text-align:right;white-space:nowrap}
+.bar-val b{font:800 17px 'Nunito',sans-serif;color:var(--ink)}
+.bar-val em{font-style:normal;font-size:12px;color:var(--ink3);margin-left:10px}
+.fine{margin:20px 0 0;font-size:14px;color:var(--ink3)}
+
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 32px}
+.filters button{background:#fff;color:var(--ink);border:1px solid var(--ink);border-radius:8px;padding:9px 16px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .15s,border-color .15s}
+.filters button:hover{border-color:var(--gold);background:var(--cream)}
+.filters button[aria-pressed=true]{background:var(--gold);border-color:var(--gold);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:92px;transition:border-color .2s,transform .2s,box-shadow .2s}
+.card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 14px 34px -18px rgba(26,32,64,.35)}
 .card[hidden]{display:none}
-.logo-wrap{height:104px;display:flex;align-items:center;padding:0 28px;background:#1b2023;border-bottom:1px solid var(--bd)}
-.logo-wrap img{max-height:54px;max-width:78%;width:auto;height:auto;object-fit:contain;opacity:.95}
-.card-body{padding:22px 26px 24px;display:flex;flex-direction:column;gap:12px;flex:1}
-.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-.card-head h3{margin:0;font-size:20px;font-weight:600;color:var(--hd);line-height:1.25}
-.pill{font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;padding:5px 10px;border-radius:8px;white-space:nowrap;border:1px solid var(--bd2);color:var(--tx)}
-.pill::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:1px;background:var(--mut)}
-.pill.good::before{background:var(--ok)}
-.pill.attention{background:var(--glow);border-color:rgba(224,161,0,.5);color:var(--gold-l)}
-.pill.attention::before{background:var(--gold)}
-.pill.hold::before{background:transparent;border:1.5px solid var(--mut)}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;margin:4px 0 0}
-.stats dt{font-size:11px;letter-spacing:.7px;text-transform:uppercase;color:var(--mut)}
-.stats dd{margin:2px 0 0;color:var(--br);font:500 16px 'Outfit',sans-serif}
-.stats dd.warn{color:var(--gold)}
-.muted{color:var(--mut);font-weight:400}
-.term{margin:0;font-size:14px;color:var(--mut)}
-.notes{margin:0;padding-left:18px;font-size:15px;line-height:1.55}
-.notes li{margin:5px 0}
-.next{display:flex;gap:10px;align-items:flex-start;margin-top:auto;padding:12px 14px;border-left:3px solid var(--gold);background:var(--glow);border-radius:0 8px 8px 0;font-size:15px;color:var(--br)}
-.owner{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.7px;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:#2d353a;color:var(--br);border:1px solid var(--bd2);white-space:nowrap;line-height:1.5}
+.logo-tile{height:104px;display:flex;align-items:center;padding:0 32px;background:var(--navy);position:relative}
+.logo-tile img{height:36px;width:auto;max-width:76%;object-fit:contain;display:block}
+.logo-tile.tall img{height:54px}
+.card-body{padding:26px 32px 30px;display:flex;flex-direction:column;gap:14px;flex:1}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
+.card-head h3{font-size:24px;line-height:1.2}
+.chip{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border:1px solid var(--line);border-radius:100px;color:var(--ink2);background:#fff}
+.chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sky)}
+.chip.attention{background:var(--cream);border-color:rgba(224,161,0,.55);color:var(--ink)}
+.chip.attention::before{background:var(--gold)}
+.chip.hold{color:var(--ink3)}
+.chip.hold::before{background:transparent;border:1.5px solid var(--ink3)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;margin:2px 0 0}
+.stats div{min-width:0}
+.stats dt{font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.stats dd{margin:4px 0 0;font:800 18px/1.3 'Nunito',sans-serif;color:var(--ink)}
+.muted{color:var(--ink3);font:400 14px 'DM Sans',sans-serif}
+.warn{display:inline-block;background:var(--cream);box-shadow:inset 3px 0 0 var(--gold);padding:0 10px;border-radius:6px}
+.term{margin:0;font-size:12px;letter-spacing:.04em;color:var(--ink3)}
+.notes{margin:0;padding-left:18px;font-size:15px;line-height:1.6}
+.notes li{margin:6px 0}
+.notes li::marker{color:var(--gold)}
+.next{display:flex;gap:12px;align-items:flex-start;margin-top:auto;padding:14px 16px;background:var(--cream);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;font-size:15px;color:var(--ink)}
+.owner{display:inline-block;font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:6px;background:var(--ink);color:#fff;white-space:nowrap;line-height:1.6}
 table{width:100%;border-collapse:collapse}
 .subs{font-size:14px;margin-top:2px}
-.subs th,.subs td{padding:6px 8px;text-align:left;border-bottom:1px solid var(--bd);vertical-align:top}
-.subs thead th{font:500 11px 'Outfit',sans-serif;letter-spacing:.7px;text-transform:uppercase;color:var(--mut)}
-.subs th[scope=row]{font:500 14px 'Outfit',sans-serif;color:var(--br)}
-.subs .num,.tasks .num{text-align:right}
-.subs .subnote td{color:var(--tx);font-size:13.5px;line-height:1.5;padding-top:0;padding-bottom:10px}
-.tasks{font-size:15px}
-.tasks th{font:500 11px 'Outfit',sans-serif;letter-spacing:.7px;text-transform:uppercase;color:var(--mut);text-align:left;padding:8px 10px;border-bottom:1px solid var(--bd2)}
-.tasks td{padding:11px 10px;border-bottom:1px solid var(--bd);vertical-align:top}
-.tasks td:nth-child(3){white-space:nowrap;color:var(--br)}
-.qgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.qcard{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:26px 28px;scroll-margin-top:84px}
-.qcard h3{margin:0 0 4px;font-size:20px;font-weight:600;color:var(--hd)}
-.qcard .intro{margin:0 0 16px;font-size:15px;color:var(--mut)}
-.q{border:0;margin:0 0 16px;padding:0}
-.q legend{padding:0;margin-bottom:6px;font-size:15px;font-weight:500;color:var(--br)}
-.opt{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--bd2);border-radius:8px;margin:6px 0;cursor:pointer;font-size:15px;line-height:1.45}
+.subs th,.subs td{padding:8px 8px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.subs thead th{font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.subs th[scope=row]{font:800 15px 'Nunito',sans-serif;color:var(--ink)}
+.subs .num{text-align:right;font-weight:700;color:var(--ink)}
+.subs .subnote td{color:var(--ink2);font-size:14px;line-height:1.55;padding-top:0;padding-bottom:12px}
+
+/* action list (dark band) */
+.tasks{font-size:15.5px}
+.tasks th{font-size:10.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#9aa0bd;text-align:left;padding:10px 14px;border-bottom:1px solid var(--line-d)}
+.tasks td{padding:16px 14px;border-bottom:1px solid var(--line-d);vertical-align:top;color:#dfe2f0}
+.tasks .owner{background:rgba(255,255,255,.1);border:1px solid var(--line-d)}
+.tasks .when{white-space:nowrap;color:#fff;font-weight:700}
+.tasks .who{color:#9aa0bd;font-size:14px}
+.tasks-wrap{background:var(--navy2);border:1px solid var(--line-d);border-radius:14px;padding:14px 18px}
+
+/* forms */
+.qgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:32px;scroll-margin-top:92px;transition:border-color .2s}
+.qcard:hover{border-color:var(--gold)}
+.qcard h3{font-size:24px;margin-bottom:6px}
+.qcard .intro{margin:0 0 22px;font-size:15px;color:var(--ink3)}
+.q{border:0;margin:0 0 20px;padding:0;min-width:0}
+.q legend{padding:0;margin-bottom:8px;font:700 15px 'DM Sans',sans-serif;color:var(--ink)}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:11px 14px;border:1px solid var(--line);border-radius:8px;margin:8px 0;cursor:pointer;font-size:15px;line-height:1.45;transition:border-color .15s,background .15s}
 .opt:hover{border-color:var(--gold)}
-.opt input{margin-top:5px;accent-color:var(--gold)}
-.fl{display:block;font:500 13px 'Outfit',sans-serif;color:var(--mut);letter-spacing:.3px}
-.fl input,.fl textarea{display:block;width:100%;margin-top:5px;background:#171b1e;color:var(--br);border:1px solid var(--bd2);border-radius:8px;padding:10px 12px;font:16px 'Source Serif 4',Georgia,serif}
-.fl input:focus,.fl textarea:focus,.opt:focus-within{outline:2px solid var(--gold);outline-offset:1px}
-.row{margin:0 0 16px}.qform>.fl,.q .fl{margin-bottom:6px}.q>.fl:last-child{margin-bottom:0}.qform .row .fl{margin-bottom:0}
-button[type=submit]{background:var(--gold);color:#20272a;border:0;border-radius:6px;padding:12px 20px;font-size:15px;font-weight:600;cursor:pointer}
+.opt:has(input:checked){border-color:var(--gold);background:var(--cream)}
+.opt input{margin-top:4px;accent-color:var(--gold)}
+.fl{display:block;font:500 11px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.fl input,.fl textarea{display:block;width:100%;margin-top:8px;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:11px 14px;font:400 16px 'DM Sans',sans-serif;letter-spacing:0;text-transform:none}
+.fl input:focus,.fl textarea:focus,.opt:focus-within{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+.qform>.fl,.q .fl{margin-bottom:4px}
+.row{margin:18px 0 20px}
+button[type=submit]{background:var(--gold);color:var(--ink);border:0;border-radius:8px;padding:13px 22px;font:800 15px 'Nunito',sans-serif;cursor:pointer;transition:background .15s}
 button[type=submit]:hover{background:var(--gold-l)}
 button[type=submit]:disabled{opacity:.6;cursor:wait}
-.status{margin:12px 0 0;font:500 14px 'Outfit',sans-serif;min-height:1.2em}
-.status.ok{color:var(--ok)}.status.err{color:var(--gold-l)}
+.status{margin:14px 0 0;font-size:14px;font-weight:700;min-height:1.3em}
+.status.ok{color:var(--ink)}
+.status.ok::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--sky);margin-right:8px}
+.status.err{color:var(--ink);background:var(--cream);border-left:3px solid var(--gold);padding:8px 12px;border-radius:0 8px 8px 0}
 .hp{position:absolute;left:-9999px;height:0;overflow:hidden}
-footer{margin-top:64px;padding:28px 0 48px;border-top:1px solid var(--bd);font:14px 'Outfit',sans-serif;color:var(--mut)}
-footer p{margin:4px 0}
-@media(max-width:860px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.grid,.qgrid{grid-template-columns:1fr}nav{display:none}.bar-row{grid-template-columns:90px 1fr;}.bar-val{grid-column:1/-1;text-align:left;margin-top:-4px}}
-@media(max-width:520px){.wrap{padding:0 16px}.kpis{gap:12px}.kpi b{font-size:21px}.kpi{padding:16px}.panel,.qcard{padding:20px}.card-body{padding:18px}.tasks thead{display:none}.tasks tr{display:block;padding:10px 0;border-bottom:1px solid var(--bd)}.tasks td{display:block;border:0;padding:3px 0}.tasks td:nth-child(3){white-space:normal}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+footer{background:var(--ink);color:#9aa0bd;padding:56px 0 40px}
+footer .logo-h{height:34px;margin-bottom:28px}
+footer .rule{border-top:1px solid var(--line-d);padding-top:22px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot-mono{font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+footer p{margin:0 0 6px;font-size:14px;max-width:720px}
+
+@media(max-width:900px){.statblock{grid-template-columns:repeat(2,1fr)}.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line-d)}.grid,.qgrid{grid-template-columns:1fr}.top nav a:not(.cta){display:none}.bar-row{grid-template-columns:96px 1fr}.bar-val{grid-column:1/-1;text-align:left;margin-top:-6px}}
+@media(max-width:600px){.wrap{padding:0 20px}.hero{padding:64px 0 56px}.band{padding:64px 0}.band.tight{padding:56px 0 16px}.panel,.qcard{padding:22px}.card-body{padding:22px}.stat{padding:20px}.logo-h{height:26px}.tasks thead{display:none}.tasks tr{display:block;padding:12px 0;border-bottom:1px solid var(--line-d)}.tasks td{display:block;border:0;padding:3px 0}.tasks .when{white-space:normal}.tasks-wrap{padding:8px 16px}.card-head{flex-direction:column;gap:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,.qcard{transition:none}.card:hover{transform:none}}
 '''
 
 JS = r'''
@@ -417,9 +476,9 @@ JS = r'''
 
 
 def page():
+    from urllib.parse import quote
     cards = "".join(card(c) for c in CUSTOMERS)
-    fav = "data:image/svg+xml," + (
-        "%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='26 0 100 67'%3E%3Cpath fill='%23e0a100' d='M93.26,17.12V5.14c14.63,5.99,24.74,20.13,24.74,36.87l-8.56,4.15c-1.4.61-2.33,2-2.49,3.53l-1.09,8.6c-18.52-3.23-37.04-3.23-54.93-.15l-1.09-8.6c-.16-1.54-1.09-2.92-2.49-3.53l-10.11-4.92c.47-16.29,10.58-30.11,24.9-35.95v11.98c0,2.3,1.24,4.46,3.42,5.53l9.34,4.61c.93.46,1.87.61,2.8.61s1.87-.15,2.8-.61l9.34-4.61c2.18-1.08,3.42-3.23,3.42-5.53Z'/%3E%3C/svg%3E")
+    fav = "data:image/svg+xml," + quote(MARK, safe="/:=,;()'")
     qforms = "".join(FORMS)
     return f'''<!doctype html>
 <html lang="en">
@@ -427,38 +486,41 @@ def page():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1A2040">
 <title>Oversite AR Review</title>
 <link rel="icon" href="{fav}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>{CSS}</style>
 </head>
 <body>
-<header class="top"><div class="wrap">{SHIELD}<div class="brand">Oversite<small>Accounts receivable review</small></div>
-<nav><a href="#customers">Customers</a><a href="#actions">Action list</a><a href="#questions">Questions</a></nav></div></header>
-<main class="wrap">
-<div class="hero">
+<header class="top"><div class="wrap">{LOGO_H}
+<nav><a href="#customers">Customers</a><a href="#actions">Action list</a><a href="#questions" class="cta">Answer questions</a></nav></div></header>
+<main>
+<section class="dark glow hero"><div class="wrap">
+<p class="eyebrow">Accounts receivable &middot; {AS_OF}</p>
 <h1>14 customers. One clear picture.</h1>
-<p>Status of every customer under contract as of {AS_OF}, built from Stripe, the Oversite database, and the PNFP bank deposits. Questions that need your call are at the bottom.</p>
+<p class="lede">Where every customer under contract stands, built from Stripe, the Oversite database, and the PNFP bank deposits. The questions that need your call are at the bottom.</p>
+<div class="statblock">
+<div class="stat"><b>{money(OPEN_TOTAL)}</b><span>Open balance</span><small>Stripe, after clean-up</small></div>
+<div class="stat"><b>{money(PAST_TOTAL)}</b><span>Past due</span><small>Volkert and Chen Moore</small></div>
+<div class="stat"><b>{money(OPEN_TOTAL - PAST_TOTAL)}</b><span>Not yet due</span><small>Mostly Collier, due 10/29</small></div>
+<div class="stat"><b>{len(CUSTOMERS)}</b><span>Customers</span><small>{n_good} good, {n_att} attention, {n_hold} on hold</small></div>
 </div>
+</div></section>
 
-<div class="kpis">
-<div class="kpi gold"><span class="label">Open balance</span><b>{money(OPEN_TOTAL)}</b><small>Stripe, after clean-up</small></div>
-<div class="kpi"><span class="label">Past due</span><b>{money(PAST_TOTAL)}</b><small>Volkert and Chen Moore</small></div>
-<div class="kpi"><span class="label">Not yet due</span><b>{money(OPEN_TOTAL - PAST_TOTAL)}</b><small>Mostly Collier, due 10/29</small></div>
-<div class="kpi"><span class="label">Customers</span><b>{len(CUSTOMERS)}</b><small>{n_good} good, {n_att} attention, {n_hold} on hold</small></div>
-</div>
-
-<div class="panel">
-<h2>Where the open balance sits</h2>
+<section class="band tight"><div class="wrap">
+<p class="eyebrow">Concentration</p>
+<h2 class="title">Where the open balance sits</h2>
 <p class="sub">Collier alone is most of it. Everything else is small, but Volkert Virginia Beach is the oldest.</p>
-{bars()}
-<p class="sub" style="margin:14px 0 0">Excludes HMB TUN2DAXI-0004 ($329.25), which is likely stale and unverified, and unbilled catch-ups.</p>
-</div>
+<div class="panel">{bars()}
+<p class="fine">Excludes HMB TUN2DAXI-0004 ($329.25), which is likely stale and unverified, and unbilled catch-ups.</p></div>
+</div></section>
 
-<section class="block" id="customers">
-<h2>Customers</h2>
-<p class="lead">Seats are active users in Oversite, then seats billed in Stripe. Viewers are not counted.</p>
+<section class="band" id="customers"><div class="wrap">
+<p class="eyebrow">01 &middot; Customers</p>
+<h2 class="title">Every account, top down</h2>
+<p class="sub">Seats are active users in Oversite, then seats billed in Stripe. Viewers are not counted.</p>
 <div class="filters" role="group" aria-label="Filter customers">
 <button type="button" data-f="all" aria-pressed="true">All {len(CUSTOMERS)}</button>
 <button type="button" data-f="attention" aria-pressed="false">Needs attention {n_att}</button>
@@ -466,22 +528,26 @@ def page():
 <button type="button" data-f="good" aria-pressed="false">Good standing {n_good}</button>
 </div>
 <div class="grid">{cards}</div>
-</section>
+</div></section>
 
-<section class="block" id="actions">
-<h2>Action list</h2>
-<p class="lead">In priority order.</p>
-<div class="panel">{tasks()}</div>
-</section>
+<section class="dark band" id="actions"><div class="wrap">
+<p class="eyebrow">02 &middot; Action list</p>
+<h2 class="title">What happens next, in priority order</h2>
+<p class="sub" style="color:#c9cde0">Owner, timing, and whether Cowork can do the first draft.</p>
+<div class="tasks-wrap">{tasks()}</div>
+</div></section>
 
-<section class="block" id="questions">
-<h2>Questions for Marissa</h2>
-<p class="lead">Quick answers are fine. Each one goes straight to Matt.</p>
+<section class="band" id="questions"><div class="wrap">
+<p class="eyebrow">03 &middot; Questions for Marissa</p>
+<h2 class="title">Your call, in a few clicks</h2>
+<p class="sub">Quick answers are fine. Each form goes straight to Matt.</p>
 <div class="qgrid">{qforms}</div>
-</section>
+</div></section>
 </main>
-<footer><div class="wrap"><p>Golden Spike Technologies, Inc. (Oversite). Internal, not for distribution.</p>
-<p>Sources: Stripe, Oversite production database, PNFP bank deposits through 10/27/2026. Seat counts and balances are a snapshot and will drift.</p></div></footer>
+<footer><div class="wrap">{LOGO_H}
+<div class="rule"><div><p>Golden Spike Technologies, Inc. (Oversite). Internal, not for distribution.</p>
+<p>Sources: Stripe, Oversite production database, PNFP deposits through 10/27/2026. Counts and balances are a snapshot and will drift.</p></div>
+<span class="foot-mono">AI is the next evolution of UI/UX</span></div></div></footer>
 <script>{JS}</script>
 </body>
 </html>
